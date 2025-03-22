@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: cookie_auth_app
+    ports:
+      - '8080:8080' # Ensure container runs on port 8080
+    restart: always
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_proxy
+    ports:
+      - '7999:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
