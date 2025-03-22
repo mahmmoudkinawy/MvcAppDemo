@@ -1,4 +1,6 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.DataProtection;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,14 @@ builder.Services.AddControllersWithViews();
 
 
 {
+    var redis = ConnectionMultiplexer.Connect(builder.Configuration["ConnectionStrings:Redis"]);
+
+    // Configure Data Protection to store keys in Redis
+    builder
+        .Services.AddDataProtection()
+        .PersistKeysToStackExchangeRedis(redis, "DataProtection-Keys") // ✅ Correct method
+        .SetApplicationName("MyAuthApp"); // Ensures all instances share keys
+
     builder
         .Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
         .AddCookie(
