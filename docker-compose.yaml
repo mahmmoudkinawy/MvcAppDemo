@@ -3,7 +3,7 @@ services:
     build: .
     container_name: cookie_auth_app
     ports:
-      - '8080:8080' # Ensure container runs on port 8080
+      - '8000:8080' # Ensure container runs on port 8080
     restart: always
 
   nginx:
