@@ -3,7 +3,6 @@ version: '3.8'
 services:
   app1:
     build: .
-    container_name: cookie_auth_app1
     ports:
       - '8090:8080'
     restart: always
@@ -12,7 +11,6 @@ services:
 
   app2:
     build: .
-    container_name: cookie_auth_app2
     ports:
       - '8091:8080'
     restart: always
@@ -21,7 +19,6 @@ services:
 
   app3:
     build: .
-    container_name: cookie_auth_app3
     ports:
       - '8092:8080'
     restart: always
@@ -30,7 +27,6 @@ services:
 
   app4:
     build: .
-    container_name: cookie_auth_app4
     ports:
       - '8093:8080'
     restart: always
@@ -39,7 +35,6 @@ services:
 
   app5:
     build: .
-    container_name: cookie_auth_app5
     ports:
       - '8094:8080'
     restart: always
