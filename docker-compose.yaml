@@ -2,6 +2,8 @@ services:
   app:
     build: .
     container_name: cookie_auth_app
+    deploy:
+      replicas: 5 # Scale to 5 instances
     ports:
       - '8001:8080' # Ensure container runs on port 8080
     restart: always
