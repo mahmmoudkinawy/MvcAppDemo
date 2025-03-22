@@ -30,7 +30,7 @@ public class AccountController : Controller
                 authProperties
             );
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "ProtectedPage");
         }
 
         ViewBag.Error = "Invalid credentials";
