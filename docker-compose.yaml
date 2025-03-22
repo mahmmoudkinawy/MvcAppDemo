@@ -1,10 +1,37 @@
 services:
-  app:
+  app1:
     build: .
-    deploy:
-      replicas: 5 # Scale to 5 instances
+    container_name: cookie_auth_app1
     ports:
-      - '8080' # Ensure container runs on port 8080
+      - '8090:8080'
+    restart: always
+
+  app2:
+    build: .
+    container_name: cookie_auth_app2
+    ports:
+      - '8091:8080'
+    restart: always
+
+  app3:
+    build: .
+    container_name: cookie_auth_app3
+    ports:
+      - '8092:8080'
+    restart: always
+
+  app4:
+    build: .
+    container_name: cookie_auth_app4
+    ports:
+      - '8093:8080'
+    restart: always
+
+  app5:
+    build: .
+    container_name: cookie_auth_app5
+    ports:
+      - '8094:8080'
     restart: always
 
   nginx:
